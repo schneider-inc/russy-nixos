@@ -30,7 +30,6 @@
     pkgs.hyprpolkitagent
     pkgs.wofi-emoji
     pkgs.swaynotificationcenter
-    pkgs.clipse
     pkgs.grim
     pkgs.kdePackages.dolphin
     pkgs.superfile

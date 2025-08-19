@@ -9,13 +9,18 @@
   # manage.
   home.username = "z3ta";
   home.homeDirectory = "/home/z3ta";
-  
 
   nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   services.kdeconnect.enable = true;
+  
+  services.clipse = {
+    enable = true;
+    allowDuplicates = true;
+    historySize = 100;
+  };
  
   programs.neovim = { enable = true; };
 
