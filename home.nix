@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -6,6 +6,7 @@
   home.username = "z3ta";
   home.homeDirectory = "/home/z3ta";
 
+  nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -26,73 +27,78 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-      pkgs.lua
-      pkgs.git
-      pkgs.python313
-      pkgs.python313Packages.pip
-      pkgs.pyright
-      pkgs.haskellPackages.ghc
-      pkgs.haskellPackages.cabal-install
-      pkgs.haskellPackages.stack
-      pkgs.haskellPackages.haskell-language-server
-      pkgs.nil
-      pkgs.elmPackages.elm
-      pkgs.elmPackages.elm-language-server
-      pkgs.typescript-language-server
-      pkgs.nodejs
-      pkgs.arduino-language-server
-      pkgs.bash-language-server
-      pkgs.nixfmt-classic
-      pkgs.gcc
-      pkgs.rustup
-      pkgs.waybar
-      pkgs.wofi
-      pkgs.hyprpaper
-      pkgs.hyprlock
-      pkgs.hypridle
-      pkgs.hyprcursor
-      pkgs.hyprpolkitagent
-      pkgs.wofi-emoji
-      pkgs.swaynotificationcenter
-      pkgs.clipse
-      pkgs.grim
-      pkgs.kdePackages.dolphin
-      pkgs.superfile
-      pkgs.ranger
-      pkgs.kdePackages.qtwayland
-      pkgs.auto-cpufreq
-      pkgs.autojump
-      pkgs.guvcview
-      pkgs.cameractrls-gtk3
-      pkgs.syncthing
-      pkgs.fzf
-      pkgs.busybox
-      pkgs.pavucontrol
-      pkgs.easyeffects
-      pkgs.nh
-      pkgs.localsend
-      pkgs.neofetch
+    pkgs.lua
+    pkgs.git
+    pkgs.python313
+    pkgs.python313Packages.pip
+    pkgs.pyright
+    pkgs.haskellPackages.ghc
+    pkgs.haskellPackages.cabal-install
+    pkgs.haskellPackages.stack
+    pkgs.haskellPackages.haskell-language-server
+    pkgs.nil
+    pkgs.elmPackages.elm
+    pkgs.elmPackages.elm-language-server
+    pkgs.typescript-language-server
+    pkgs.nodejs
+    pkgs.arduino-language-server
+    pkgs.bash-language-server
+    pkgs.nixfmt-classic
+    pkgs.gcc
+    pkgs.rustup
+    pkgs.waybar
+    pkgs.wofi
+    pkgs.hyprpaper
+    pkgs.hyprlock
+    pkgs.hypridle
+    pkgs.hyprcursor
+    pkgs.hyprpolkitagent
+    pkgs.wofi-emoji
+    pkgs.swaynotificationcenter
+    pkgs.clipse
+    pkgs.grim
+    pkgs.kdePackages.dolphin
+    pkgs.superfile
+    pkgs.ranger
+    pkgs.kdePackages.qtwayland
+    pkgs.auto-cpufreq
+    pkgs.autojump
+    pkgs.guvcview
+    pkgs.cameractrls-gtk3
+    pkgs.syncthing
+    pkgs.fzf
+    pkgs.busybox
+    pkgs.pavucontrol
+    pkgs.easyeffects
+    pkgs.nh
+    pkgs.localsend
+    pkgs.neofetch
   ];
 
-    programs.neovim = { enable = true; };
+  services.kdeconnect.enable = true;
 
-    programs.autojump.enable = true;
-    programs.autojump.enableZshIntegration = true;
+  programs.neovim = { enable = true; };
 
-    programs.zsh = {
+  programs.autojump.enable = true;
+  programs.autojump.enableZshIntegration = true;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = { update = "sudo nixos-rebuild switch"; };
+
+    oh-my-zsh = {
       enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-
-      shellAliases = { update = "sudo nixos-rebuild switch"; };
-
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" "vi-mode" ];
-        theme = "robbyrussell";
-      };
+      plugins = [ 
+        "git" 
+        "vi-mode" 
+      ];
+      theme = "aussiegeek";
     };
+  };
 
   programs.git = {
     enable = true;

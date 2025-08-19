@@ -19,7 +19,7 @@
     };
   };
 
-  # Allow unfree packages
+  # # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # enable flakes
