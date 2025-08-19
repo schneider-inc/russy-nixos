@@ -7,17 +7,17 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    # inputs.home-manager.nixosModules.default
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "z3ta" = import ./home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     "z3ta" = import ./home.nix;
+  #   };
+  # };
 
   # # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
