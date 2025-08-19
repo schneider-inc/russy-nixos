@@ -2,22 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, outputs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # inputs.home-manager.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     "z3ta" = import ./home.nix;
-  #   };
-  # };
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      "z3ta" = import ../home-manager/home.nix;
+    };
+  };
 
   # # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
