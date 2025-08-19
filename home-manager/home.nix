@@ -28,7 +28,8 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = { 
-        update = "sudo nixos-rebuild switch --flake '/home/z3ta/justy_files/configs/nixos'"; 
+        update = "sudo nixos-rebuild switch --flake \"/home/z3ta/justy_files/configs/nixos\"#nixos"; 
+        poop = "echo poop";
     };
 
     oh-my-zsh = {
