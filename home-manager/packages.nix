@@ -47,7 +47,7 @@
     pkgs.nh
     pkgs.localsend
     pkgs.neofetch
-    pkgs.wl-clipboard
+    pkgs.wl-clipboard-rs
     pkgs.clipse
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

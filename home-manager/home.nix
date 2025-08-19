@@ -27,7 +27,9 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = { update = "sudo nixos-rebuild switch"; };
+    shellAliases = { 
+        update = "sudo nixos-rebuild switch --flake '/home/z3ta/justy_files/configs/nixos'"; 
+    };
 
     oh-my-zsh = {
       enable = true;
