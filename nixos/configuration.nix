@@ -12,6 +12,10 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
+  nix.nixPath = [
+    "nixos-config=/home/z3ta/justy_files/configs/nixos/"
+  ];
+
   # home-manager = {
   #   extraSpecialArgs = { inherit inputs; };
   #   users = {

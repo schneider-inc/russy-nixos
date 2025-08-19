@@ -15,13 +15,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   services.kdeconnect.enable = true;
-  
-  services.clipse = {
-    enable = true;
-    allowDuplicates = true;
-    historySize = 100;
-  };
- 
+
   programs.neovim = { enable = true; };
 
   programs.autojump.enable = true;
