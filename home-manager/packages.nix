@@ -27,6 +27,7 @@
     pkgs.ripgrep
     pkgs.gcc
     pkgs.rustup
+    pkgs.go
     pkgs.waybar
     pkgs.wofi
     pkgs.hyprpaper

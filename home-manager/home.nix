@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, lib, inputs, outputs, ... }: {
   imports = [ ./packages.nix ];
 
   # Home Manager needs a bit of information about you and the paths it should
