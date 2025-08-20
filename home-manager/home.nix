@@ -20,8 +20,10 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      update = "sudo nixos-rebuild switch";
-      upgrade = "sudo nixos-rebuild switch --upgrade";
+      nupdate = "sudo nixos-rebuild switch";
+      nupgrade = "sudo nixos-rebuild switch --upgrade";
+      hupdate = "home-manager switch --flake /etc/nixos#z3ta@nixos";
+      fupdate = "nix flake update";
       nvimnixos = "cd /etc/nixos/ && sudo -E -s nvim .";
       nvimdots = "cd ~/justy_files/configs/dotfiles/ && sudo -E -s nvim .";
       pulldots = "cd ~/justy_files/configs/dotfiles/ && git pull";

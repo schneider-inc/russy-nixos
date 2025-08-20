@@ -7,7 +7,6 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_15;
@@ -21,6 +20,7 @@
   environment.systemPackages = [
     pkgs.egl-wayland
     pkgs.kitty # required for the default Hyprland config
+    pkgs.home-manager
   ];
 
   # Load nvidia driver for Xorg and Wayland
@@ -33,6 +33,8 @@
 
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
+  programs.git.enable = true;
 
   programs.zsh.enable = true;
 
