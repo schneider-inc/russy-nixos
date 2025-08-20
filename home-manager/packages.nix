@@ -6,6 +6,8 @@
     pkgs.python313
     pkgs.python313Packages.pip
     pkgs.qmk
+    pkgs.qmk_hid
+    pkgs.qmk-udev-rules
     pkgs.pyright
     pkgs.haskellPackages.ghc
     pkgs.haskellPackages.cabal-install
@@ -32,6 +34,10 @@
     pkgs.swaynotificationcenter
     pkgs.grim
     pkgs.kdePackages.dolphin
+    pkgs.kdePackages.kdegraphics-thumbnailers
+    pkgs.kdePackages.ffmpegthumbs
+    pkgs.libsForQt5.qtsvg
+    pkgs.libsForQt5.kio-extras
     pkgs.superfile
     pkgs.ranger
     pkgs.kdePackages.qtwayland
@@ -41,14 +47,17 @@
     pkgs.cameractrls-gtk3
     pkgs.syncthing
     pkgs.fzf
-    pkgs.busybox
+    # pkgs.busybox
+    pkgs.usbutils
     pkgs.pavucontrol
     pkgs.easyeffects
     pkgs.nh
+    pkgs.pure-prompt
     pkgs.localsend
     pkgs.neofetch
-    pkgs.wl-clipboard-rs
-    pkgs.clipse
+    pkgs.wl-clipboard
+    pkgs.copyq
+    pkgs.fzf
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

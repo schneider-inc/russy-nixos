@@ -55,6 +55,8 @@
     };
   };
 
+  hardware.keyboard.qmk.enable = true;
+
   services.blueman.enable = true;
 
   # enable nvidia

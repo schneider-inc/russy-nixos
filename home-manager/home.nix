@@ -1,9 +1,5 @@
-{ config, pkgs, inputs, ... }:
-
-{
-  imports = [
-    ./packages.nix
-  ];
+{ config, pkgs, inputs, ... }: {
+  imports = [ ./packages.nix ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -27,20 +23,17 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = { 
-        # update = "sudo nixos-rebuild switch --flake \"/home/z3ta/justy_files/configs/nixos\"#nixos"; 
-        poop = "ls";
+    shellAliases = {
+      update = "sudo nixos-rebuild switch";
+      poop = "ls";
     };
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ 
-        "git" 
-        "vi-mode" 
-      ];
+      plugins = [ "git" "vi-mode" ];
     };
 
-    initExtra = ''
+    initContent = ''
       source ${pkgs.pure-prompt}/share/zsh/site-functions/prompt_pure_setup
     '';
   };
@@ -49,11 +42,34 @@
     enable = true;
     userName = "schneider-inc";
     userEmail = "schneiderjus191@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      safe.directory = "/etc/nixos";
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
+  home.file = let
+    pathGen = folder:
+      config.lib.file.mkOutOfStoreSymlink
+      "/home/z3ta/justy_files/configs/dotfiles/.config/${folder}";
+  in {
+    ".config/nvim" = { 
+        source = (pathGen "nvim"); 
+        recursive = true;
+    };
+
+    ".config/hypr" = { 
+        source = (pathGen "hypr"); 
+        recursive = true;
+    };
+
+    ".config/waybar" = { 
+        source = (pathGen "waybar"); 
+        recursive = true;
+    };
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

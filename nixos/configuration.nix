@@ -33,6 +33,9 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   services.flatpak.enable = true;
 
   services.mullvad-vpn.enable = true;
