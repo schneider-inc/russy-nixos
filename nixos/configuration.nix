@@ -12,13 +12,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      "z3ta" = import ../home-manager/home.nix;
-    };
-  };
-
   # # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -54,7 +47,6 @@
   };
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

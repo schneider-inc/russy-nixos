@@ -8,10 +8,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  services.kdeconnect.enable = true;
-
   programs.neovim = { enable = true; };
 
   programs.autojump.enable = true;
@@ -25,7 +21,12 @@
 
     shellAliases = {
       update = "sudo nixos-rebuild switch";
-      poop = "ls";
+      upgrade = "sudo nixos-rebuild switch --upgrade";
+      nvimnixos = "cd /etc/nixos/ && sudo -E -s nvim .";
+      nvimdots = "cd ~/justy_files/configs/dotfiles/ && sudo -E -s nvim .";
+      pulldots = "cd ~/justy_files/configs/dotfiles/ && git pull";
+      pushbasic = "git add *; git commit; git push";
+      clean = "nh clean all --keep 3";
     };
 
     oh-my-zsh = {
@@ -36,6 +37,14 @@
     initContent = ''
       source ${pkgs.pure-prompt}/share/zsh/site-functions/prompt_pure_setup
     '';
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = "app.zen_browser.zen.desktop";
+    "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
+    "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+    "x-scheme-handler/about" = "app.zen_browser.zen.desktop";
+    "x-scheme-handler/unknown" = "app.zen_browser.zen.desktop";
   };
 
   programs.git = {
@@ -55,19 +64,16 @@
       config.lib.file.mkOutOfStoreSymlink
       "/home/z3ta/justy_files/configs/dotfiles/.config/${folder}";
   in {
-    ".config/nvim" = { 
-        source = (pathGen "nvim"); 
-        recursive = true;
+    ".config/nvim" = {
+      source = (pathGen "nvim");
     };
 
-    ".config/hypr" = { 
-        source = (pathGen "hypr"); 
-        recursive = true;
+    ".config/hypr" = {
+      source = (pathGen "hypr");
     };
 
-    ".config/waybar" = { 
-        source = (pathGen "waybar"); 
-        recursive = true;
+    ".config/waybar" = {
+      source = (pathGen "waybar");
     };
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in

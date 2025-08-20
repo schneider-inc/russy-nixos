@@ -1,5 +1,6 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
   home.packages = [
     pkgs.lua
     pkgs.git
@@ -21,6 +22,9 @@
     pkgs.arduino-language-server
     pkgs.bash-language-server
     pkgs.nixfmt-classic
+    pkgs.clang-tools
+    pkgs.lua-language-server
+    pkgs.ripgrep
     pkgs.gcc
     pkgs.rustup
     pkgs.waybar

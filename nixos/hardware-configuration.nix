@@ -48,11 +48,15 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+<<<<<<< HEAD
     settings = {
       General = {
         Experimental = true;
       };
     };
+=======
+    settings = { General = { Experimental = true; }; };
+>>>>>>> b52f386 (lots of shit, before trying to use home-manager standalone in flake)
   };
 
   hardware.keyboard.qmk.enable = true;
