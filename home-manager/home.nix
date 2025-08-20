@@ -8,7 +8,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.neovim = { enable = true; };
+  programs.neovim = { 
+      enable = true; 
+  };
 
   programs.autojump.enable = true;
   programs.autojump.enableZshIntegration = true;
@@ -68,6 +70,7 @@
   in {
     ".config/nvim" = {
       source = (pathGen "nvim");
+      recursive = true;
     };
 
     ".config/hypr" = {

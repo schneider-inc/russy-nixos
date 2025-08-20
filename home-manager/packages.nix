@@ -9,13 +9,13 @@
     pkgs.qmk
     pkgs.qmk_hid
     pkgs.qmk-udev-rules
-    pkgs.pyright
     pkgs.haskellPackages.ghc
     pkgs.haskellPackages.cabal-install
     pkgs.haskellPackages.stack
+    pkgs.elmPackages.elm
     pkgs.haskellPackages.haskell-language-server
     pkgs.nil
-    pkgs.elmPackages.elm
+    pkgs.pyright
     pkgs.elmPackages.elm-language-server
     pkgs.typescript-language-server
     pkgs.nodejs
@@ -24,6 +24,7 @@
     pkgs.nixfmt-classic
     pkgs.clang-tools
     pkgs.lua-language-server
+    pkgs.fd
     pkgs.ripgrep
     pkgs.gcc
     pkgs.rustup
