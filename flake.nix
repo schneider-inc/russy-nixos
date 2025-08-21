@@ -25,7 +25,7 @@
     packages = import ./pkgs nixpkgs.legacyPackages.${system};
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter = nixpkgs.legacyPackages.${system}.nixfmt;
 
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
@@ -39,7 +39,7 @@
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
     nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        russy = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs outputs;};
           modules = [
             ./nixos/configuration.nix
@@ -48,7 +48,7 @@
     };
 
     homeConfigurations = {
-      "z3ta@nixos" = home-manager.lib.homeManagerConfiguration {
+      "z3ta@russy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [

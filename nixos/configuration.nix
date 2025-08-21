@@ -21,6 +21,7 @@
     pkgs.egl-wayland
     pkgs.kitty # required for the default Hyprland config
     pkgs.home-manager
+    pkgs.kdePackages.plasma-workspace
   ];
 
   # Load nvidia driver for Xorg and Wayland
@@ -29,10 +30,7 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  services.flatpak.enable = true;
-
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  services.dbus.enable = true;
 
   programs.git.enable = true;
 
@@ -54,7 +52,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "russy"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -74,6 +72,7 @@
   #   ];  
   # };
   networking.firewall = rec {
+    enable = true;
     allowedTCPPortRanges = [
       {
         from = 1714;
@@ -175,7 +174,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

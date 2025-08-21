@@ -1,5 +1,7 @@
 { config, pkgs, lib, inputs, outputs, ... }: {
-  imports = [ ./packages.nix ];
+  imports = [ 
+    ./packages.nix 
+  ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -24,13 +26,14 @@
     shellAliases = {
       nupdate = "sudo nixos-rebuild switch";
       nupgrade = "sudo nixos-rebuild switch --upgrade";
-      hupdate = "home-manager switch --flake /etc/nixos#z3ta@nixos";
-      fupdate = "nix flake update";
+      hupdate = "home-manager switch --flake /etc/nixos#z3ta@russy";
+      fupdate = "sudo nix flake update --flake /etc/nixos";
       nvimnixos = "cd /etc/nixos/ && sudo -E -s nvim .";
       nvimdots = "cd ~/justy_files/configs/dotfiles/ && sudo -E -s nvim .";
       pulldots = "cd ~/justy_files/configs/dotfiles/ && git pull";
       pushbasic = "git add *; git commit; git push";
       clean = "nh clean all --keep 3";
+      contuw = "sudo openconnect --user e12413076@student.tuwien.ac.at vpn.tuwien.ac.at. --servercert pin-sha256:hJzh/fqUmgdbZHWtv65otLOO6DlDj0tNjVafbwTbRmc=";
     };
 
     oh-my-zsh = {
@@ -117,7 +120,7 @@
   programs.home-manager.enable = true;
 
   # for "nice reload"
-  systemd.user.startServices = "sd-switch";
+  wayland.windowManager.hyprland.systemd.enable = false;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

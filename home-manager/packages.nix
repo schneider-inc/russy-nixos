@@ -2,6 +2,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    # don't forget to install these flatpak packages:
+    # flatpak install app.zen_browser.zen com.mastermindzh.tidal-hifi dev.vencord.Vesktopdev.vencord.Vesktop 
     pkgs.lua
     pkgs.git
     pkgs.python313
@@ -39,6 +41,7 @@
     pkgs.wofi-emoji
     pkgs.swaynotificationcenter
     pkgs.grim
+    pkgs.slurp
     pkgs.kdePackages.dolphin
     pkgs.kdePackages.kdegraphics-thumbnailers
     pkgs.kdePackages.ffmpegthumbs
@@ -53,7 +56,6 @@
     pkgs.cameractrls-gtk3
     pkgs.syncthing
     pkgs.fzf
-    # pkgs.busybox
     pkgs.usbutils
     pkgs.pavucontrol
     pkgs.easyeffects
@@ -64,6 +66,19 @@
     pkgs.wl-clipboard
     pkgs.copyq
     pkgs.fzf
+    pkgs.socat
+    pkgs.jq
+    pkgs.lmstudio
+    pkgs.remnote
+    pkgs.libreoffice
+    pkgs.distrobox
+    pkgs.mullvad-vpn
+    pkgs.flatpak
+    pkgs.openconnect
+    pkgs.protonvpn-gui
+    pkgs.proton-pass
+    pkgs.thunderbird
+    pkgs.protonmail-desktop
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
