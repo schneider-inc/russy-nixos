@@ -37,11 +37,15 @@
     pkgs.hyprlock
     pkgs.hypridle
     pkgs.hyprcursor
+    pkgs.hyprpicker
     pkgs.hyprpolkitagent
+    pkgs.wlr-randr
     pkgs.wofi-emoji
     pkgs.swaynotificationcenter
     pkgs.grim
     pkgs.slurp
+    pkgs.wvkbd
+    pkgs.vlc
     pkgs.kdePackages.dolphin
     pkgs.kdePackages.kdegraphics-thumbnailers
     pkgs.kdePackages.ffmpegthumbs
@@ -79,6 +83,13 @@
     pkgs.proton-pass
     pkgs.thunderbird
     pkgs.protonmail-desktop
+    pkgs.rclone
+    pkgs.rsync
+    pkgs.signal-desktop
+    pkgs.fractal
+    pkgs.virtualbox
+    pkgs.unzip
+    pkgs.lutris
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

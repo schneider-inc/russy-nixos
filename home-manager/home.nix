@@ -1,7 +1,5 @@
 { config, pkgs, lib, inputs, outputs, ... }: {
-  imports = [ 
-    ./packages.nix 
-  ];
+  imports = [ ./packages.nix ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -10,12 +8,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.neovim = { 
-      enable = true; 
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
   };
 
-  programs.autojump.enable = true;
-  programs.autojump.enableZshIntegration = true;
+  programs.neovim = { enable = true; };
 
   programs.zsh = {
     enable = true;
@@ -33,7 +31,10 @@
       pulldots = "cd ~/justy_files/configs/dotfiles/ && git pull";
       pushbasic = "git add *; git commit; git push";
       clean = "nh clean all --keep 3";
-      contuw = "sudo openconnect --user e12413076@student.tuwien.ac.at vpn.tuwien.ac.at. --servercert pin-sha256:hJzh/fqUmgdbZHWtv65otLOO6DlDj0tNjVafbwTbRmc=";
+      contuw =
+        "sudo openconnect --user e12413076@student.tuwien.ac.at vpn.tuwien.ac.at. --servercert pin-sha256:hJzh/fqUmgdbZHWtv65otLOO6DlDj0tNjVafbwTbRmc=";
+      conjn2a =
+        "sudo nmcli dev wifi rescan; sudo nmcli dev wifi con Justin's Nothing (2a)";
     };
 
     oh-my-zsh = {
@@ -46,12 +47,19 @@
     '';
   };
 
+  programs.autojump.enable = true;
+  programs.autojump.enableZshIntegration = true;
+
+  programs.htop.enable = true;
+
   xdg.mimeApps.defaultApplications = {
-    "text/html" = "app.zen_browser.zen.desktop";
-    "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
-    "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
-    "x-scheme-handler/about" = "app.zen_browser.zen.desktop";
-    "x-scheme-handler/unknown" = "app.zen_browser.zen.desktop";
+    "http" = "userapp-Zen-K6GE92.desktop";
+    "https" = "userapp-Zen-K6GE92.desktop";
+    "text/html" = "userapp-Zen-K6GE92.desktop";
+    "x-scheme-handler/http" = "userapp-Zen-K6GE92.desktop";
+    "x-scheme-handler/https" = "userapp-Zen-K6GE92.desktop";
+    "x-scheme-handler/about" = "userapp-Zen-K6GE92.desktop";
+    "x-scheme-handler/unknown" = "userapp-Zen-K6GE92.desktop";
   };
 
   programs.git = {
@@ -76,13 +84,9 @@
       recursive = true;
     };
 
-    ".config/hypr" = {
-      source = (pathGen "hypr");
-    };
+    ".config/hypr" = { source = (pathGen "hypr"); };
 
-    ".config/waybar" = {
-      source = (pathGen "waybar");
-    };
+    ".config/waybar" = { source = (pathGen "waybar"); };
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
