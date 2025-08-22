@@ -4,6 +4,7 @@
   home.packages = [
     # don't forget to install these flatpak packages:
     # flatpak install app.zen_browser.zen com.mastermindzh.tidal-hifi dev.vencord.Vesktopdev.vencord.Vesktop 
+    pkgs.vivaldi
     pkgs.lua
     pkgs.git
     pkgs.python313
@@ -66,7 +67,7 @@
     pkgs.nh
     pkgs.pure-prompt
     pkgs.localsend
-    pkgs.neofetch
+    pkgs.fastfetch
     pkgs.wl-clipboard
     pkgs.copyq
     pkgs.fzf
@@ -90,6 +91,7 @@
     pkgs.virtualbox
     pkgs.unzip
     pkgs.lutris
+    pkgs.vipsdisp
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
