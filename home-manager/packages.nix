@@ -3,7 +3,8 @@
   # environment.
   home.packages = [
     # don't forget to install these flatpak packages:
-    # flatpak install app.zen_browser.zen com.mastermindzh.tidal-hifi dev.vencord.Vesktopdev.vencord.Vesktop 
+    # flatpak install com.mastermindzh.tidal-hifi dev.vencord.Vesktopdev.vencord.Vesktop 
+    # also gsettings:
     pkgs.vivaldi
     pkgs.lua
     pkgs.git
@@ -33,15 +34,18 @@
     pkgs.rustup
     pkgs.go
     pkgs.waybar
-    pkgs.wofi
+    # pkgs.wofi
+    # pkgs.wofi-emoji
+    # pkgs.rofi
+    # pkgs.rofi-emoji
     pkgs.hyprpaper
     pkgs.hyprlock
     pkgs.hypridle
     pkgs.hyprcursor
     pkgs.hyprpicker
     pkgs.hyprpolkitagent
+    pkgs.libnotify
     pkgs.wlr-randr
-    pkgs.wofi-emoji
     pkgs.swaynotificationcenter
     pkgs.grim
     pkgs.slurp
@@ -92,6 +96,9 @@
     pkgs.unzip
     pkgs.lutris
     pkgs.vipsdisp
+    pkgs.nwg-displays
+    pkgs.volantes-cursors
+    pkgs.neofetch
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

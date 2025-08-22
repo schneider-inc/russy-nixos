@@ -50,17 +50,25 @@
   programs.autojump.enable = true;
   programs.autojump.enableZshIntegration = true;
 
+  programs.rofi = {
+      enable = true;
+      plugins = [pkgs.rofi-emoji];
+      configPath = "~/.config/rofi/config.rasi";
+  };
+
   programs.htop.enable = true;
 
   xdg.mimeApps.defaultApplications = {
-    "http" = "userapp-Zen-K6GE92.desktop";
-    "https" = "userapp-Zen-K6GE92.desktop";
-    "text/html" = "userapp-Zen-K6GE92.desktop";
-    "x-scheme-handler/http" = "userapp-Zen-K6GE92.desktop";
-    "x-scheme-handler/https" = "userapp-Zen-K6GE92.desktop";
-    "x-scheme-handler/about" = "userapp-Zen-K6GE92.desktop";
-    "x-scheme-handler/unknown" = "userapp-Zen-K6GE92.desktop";
+    "http" = "vivaldi-stable.desktop";
+    "https" = "vivaldi-stable.desktop";
+    "text/html" = "vivaldi-stable.desktop";
+    "x-scheme-handler/http" = "vivaldi-stable.desktop";
+    "x-scheme-handler/https" = "vivaldi-stable.desktop";
+    "x-scheme-handler/about" = "vivaldi-stable.desktop";
+    "x-scheme-handler/unknown" = "vivaldi-stable.desktop";
   };
+
+  gtk.cursorTheme.package = pkgs.volantes-cursors;
 
   programs.git = {
     enable = true;
@@ -87,6 +95,10 @@
     ".config/hypr" = { source = (pathGen "hypr"); };
 
     ".config/waybar" = { source = (pathGen "waybar"); };
+
+    ".config/rofi" = { source = (pathGen "rofi"); };
+
+    ".config/neofetch" = { source = (pathGen "neofetch"); };
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a

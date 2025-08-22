@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -22,6 +22,8 @@
     pkgs.kitty # required for the default Hyprland config
     pkgs.home-manager
     pkgs.kdePackages.plasma-workspace
+    pkgs.plymouth
+    pkgs.sddm-astronaut
   ];
 
   # Load nvidia driver for Xorg and Wayland
@@ -108,8 +110,11 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services.displayManager.sddm = {
+      enable = true;
+  };
+
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
