@@ -4,8 +4,8 @@
   home.packages = [
     # don't forget to install these flatpak packages:
     # flatpak install com.mastermindzh.tidal-hifi dev.vencord.Vesktopdev.vencord.Vesktop 
-    # also gsettings:
     pkgs.vivaldi
+    pkgs.brave
     pkgs.lua
     pkgs.git
     pkgs.python313
@@ -99,6 +99,16 @@
     pkgs.nwg-displays
     pkgs.volantes-cursors
     pkgs.neofetch
+    pkgs.veracrypt
+    pkgs.vesktop
+    pkgs.tidal-hifi
+    pkgs.kazam
+    pkgs.audacious
+    pkgs.kdePackages.kdenlive
+    pkgs.handbrake
+    pkgs.gimp
+    pkgs.libreoffice
+    pkgs.obsidian
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

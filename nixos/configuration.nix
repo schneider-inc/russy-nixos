@@ -24,6 +24,7 @@
     pkgs.kdePackages.plasma-workspace
     pkgs.plymouth
     pkgs.sddm-astronaut
+    pkgs.kdePackages.knewstuff
   ];
 
   # Load nvidia driver for Xorg and Wayland
@@ -34,6 +35,13 @@
 
   services.dbus.enable = true;
 
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
+  programs.dconf.enable = true;
+
   programs.git.enable = true;
 
   programs.zsh.enable = true;
@@ -41,11 +49,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
   };
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
